@@ -7,10 +7,10 @@ fi
 ARGS="ngrok"
 
 # if config is specified, use it
-if [ -z "$NGROK_CONFIG" ]; then 
+if [ -n "$NGROK_CONFIG" ]; then 
 
     ARGS="$ARGS start --config=`echo $NGROK_CONFIG` --all"
-
+    
 else # use the rest of the variables
 
   # Legacy compatible:
@@ -100,5 +100,6 @@ else # use the rest of the variables
 
 fi
 
+echo `Running command: $ARGS`
 set -x
 exec $ARGS
